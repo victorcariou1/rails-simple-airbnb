@@ -1,0 +1,7 @@
+<h1><%= @flat.name %></h1>
+<p><%= @flat.description %></p>
+<p><%= @flat.address %></p>
+<p>Prix par nuit : <%= @flat.price_per_night %>€</p>
+<p>Capacité : <%= @flat.number_of_guests %> personnes</p>
+<%= link_to "Supprimer", flat_path(@flat), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer cet appartement ?" } %>
+<%= link_to "Edit", edit_flat_path(@flat), data: { confirm: "Êtes-vous sûr de vouloir modifier cet appartement ?" } %>

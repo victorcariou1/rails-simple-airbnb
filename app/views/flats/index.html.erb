@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 d-flex justify-content-between align-items-center">
+      <h1>All our flats (<%= @flats.count %>)</h1>
+      <%= link_to 'Ajouter un nouvel appartement', new_flat_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+  <% @flats.each do |flat| %>
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title"> <%= link_to flat.name, flat_path(flat) %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= flat.address %></h6>
+      <p class="card-text"><%= flat.description %></p>
+      <p class="card-text"><strong>Prix par nuit :</strong> <%= flat.price_per_night %>€</p>
+      <p class="card-text"><strong>Capacité :</strong> <%= flat.number_of_guests %> personnes</p>
+      <%= link_to "Edit", edit_flat_path(flat), data: { confirm: "Êtes-vous sûr de vouloir modifier cet appartement ?" } %>
+      <%= link_to "Supprimer", flat_path(flat), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer cet appartement ?" } %>
+    </div>
+  </div>
+  <% end %>
+</div>
